@@ -2,15 +2,11 @@
 
 namespace perf\EventDispatch;
 
-/**
- *
- */
-class EventTest extends \PHPUnit_Framework_TestCase
-{
+use DomainException;
+use PHPUnit\Framework\TestCase;
 
-    /**
-     *
-     */
+class EventTest extends TestCase
+{
     public function testGetId()
     {
         $id = 'foo.bar';
@@ -20,9 +16,6 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($id, $event->getId());
     }
 
-    /**
-     *
-     */
     public function testHasParameterWithNotExistingParameter()
     {
         $id = 'foo.bar';
@@ -32,43 +25,35 @@ class EventTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($event->hasParameter('baz'));
     }
 
-    /**
-     *
-     */
     public function testHasParameterWithExistingParameter()
     {
-        $id = 'foo.bar';
-        $parameters = array(
+        $id         = 'foo.bar';
+        $parameters = [
             'baz' => 'qux',
-        );
+        ];
 
         $event = new Event($id, $parameters);
 
         $this->assertTrue($event->hasParameter('baz'));
     }
 
-    /**
-     *
-     * @expectedException \DomainException
-     */
     public function testGetParameterWithNotExistingParameter()
     {
         $id = 'foo.bar';
 
         $event = new Event($id);
 
+        $this->expectException(DomainException::class);
+
         $event->getParameter('baz');
     }
 
-    /**
-     *
-     */
     public function testGetParameterWithExistingParameter()
     {
-        $id = 'foo.bar';
-        $parameters = array(
+        $id         = 'foo.bar';
+        $parameters = [
             'baz' => 'qux',
-        );
+        ];
 
         $event = new Event($id, $parameters);
 

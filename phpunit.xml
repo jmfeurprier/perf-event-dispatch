@@ -7,17 +7,17 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         bootstrap="./test/unit/bootstrap.php">
+>
 
     <testsuites>
-        <testsuite>
-          <directory>./test/unit/lib</directory>
+        <testsuite name="default">
+          <directory>./test/unit/src</directory>
         </testsuite>
     </testsuites>
 
     <filter>
       <whitelist addUncoveredFilesFromWhitelist="true">
-        <directory suffix=".php">./lib</directory>
+        <directory suffix=".php">./src</directory>
       </whitelist>
     </filter>
 

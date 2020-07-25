@@ -4,20 +4,18 @@
 	"license"     : "MIT",
 	"description" : "Allows to dispatch events to listeners.",
 	"require"     : {
-		"php" : ">=5.3.3"
+		"php" : ">=7.4.0"
 	},
 	"require-dev": {
-		"ext-xdebug"                : "~2.1",
-		"pdepend/pdepend"           : "~2.0",
-		"phing/phing"               : "~2.0",
-		"phpunit/phpunit"           : "~4.0",
-		"phpmd/phpmd"               : "~2.0",
-		"sebastian/phpcpd"          : "~2.0",
-		"squizlabs/php_codesniffer" : "~2.0"
+		"ext-xdebug"                : "*",
+		"phing/phing"               : "^2.16",
+		"phpmd/phpmd"               : "^2.8",
+		"squizlabs/php_codesniffer" : "^3.5",
+		"phpunit/phpunit"           : "^9.2"
 	},
 	"autoload" : {
 		"psr-4" : {
-			"perf\\EventDispatch\\" : "lib/perf/EventDispatch/"
+			"perf\\EventDispatch\\" : "src/"
 		}
 	}
 }
